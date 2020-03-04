@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "569263077332",
+    "firebase_url": "https://terceido-51c88.firebaseio.com",
+    "project_id": "terceido-51c88",
+    "storage_bucket": "terceido-51c88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569263077332:android:c1ab6219b4f2f2fb478841",
+        "android_client_info": {
+          "package_name": "com.example.terceido"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569263077332-9po8mk3pjb16ms2ol4fdh0qjan51iha8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgNYF0fe8x0lV3d767crw8rJ34oD2O5rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569263077332-9po8mk3pjb16ms2ol4fdh0qjan51iha8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
