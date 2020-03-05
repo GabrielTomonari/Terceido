@@ -11,3 +11,19 @@ const textInputDecoration = InputDecoration(
     borderSide: BorderSide(color: Colors.lightBlueAccent, width: 2.0),
   ),
 );
+
+const attributeHeader = TextStyle(
+  fontSize: 15,
+  fontWeight: FontWeight.bold,
+);
+
+const biggerAttribute = TextStyle(
+  fontSize: 18,
+  height: 1.5,
+);
+
+const biggerAttributeHeader = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+  height: 1.5,
+);

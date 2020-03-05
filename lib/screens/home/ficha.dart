@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:terceido/screens/home/character.dart';
 
 class Ficha extends StatelessWidget {
@@ -11,10 +12,10 @@ class Ficha extends StatelessWidget {
         child: Scaffold(
           appBar: TabBar(
             tabs: <Widget>[
-              Tab(icon: Icon(Icons.directions_car, color: Colors.black,)),
-              Tab(icon: Icon(Icons.directions_transit, color: Colors.black)),
-              Tab(icon: Icon(Icons.directions_bike, color: Colors.black)),
-              Tab(icon: Icon(Icons.directions_car, color: Colors.black)),
+              Tab(icon: Icon(Entypo.man, color: Colors.black,)),
+              Tab(icon: Icon(Entypo.line_graph, color: Colors.black)),
+              Tab(icon: Icon(Entypo.bar_graph, color: Colors.black)),
+              Tab(icon: Icon(Entypo.flash, color: Colors.black)),
             ],
           ),
           body: TabBarView(children: [

@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Text(
-          'Terceido',
+          'TERCEIDO',
           style: TextStyle(color: Colors.black),
         ),
         leading: Builder(
