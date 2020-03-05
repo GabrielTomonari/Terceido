@@ -12,6 +12,12 @@ const textInputDecoration = InputDecoration(
   ),
 );
 
+
+const mainHeader = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold
+);
+
 const attributeHeader = TextStyle(
   fontSize: 15,
   fontWeight: FontWeight.bold,

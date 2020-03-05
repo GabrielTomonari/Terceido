@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:terceido/screens/home/character.dart';
+import 'package:terceido/screens/home/characteristics.dart';
 
 class Ficha extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class Ficha extends StatelessWidget {
           ),
           body: TabBarView(children: [
                 Character(),
-                Icon(Icons.directions_car, color: Colors.black,),
+                Characteristics(),
                 Icon(Icons.directions_car, color: Colors.black,),
                 Icon(Icons.directions_car, color: Colors.black,)
           ]),
