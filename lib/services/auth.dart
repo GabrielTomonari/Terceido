@@ -138,11 +138,18 @@ class AuthService {
         [''],
         [''],
         [''],
-        [''],
-        [''],
+        ['']
       );
-      // Create new spells collection for the user
+      // Create auxiliar collections for the user
        await DatabaseService(uid: user.uid).createSpellsCollection();
+       await DatabaseService(uid: user.uid).createItemsCollection();
+       await DatabaseService(uid: user.uid).createAbilitiesCollection();
+       await DatabaseService(uid: user.uid).createSpecialsCollection();
+       await DatabaseService(uid: user.uid).createEvolutionCollection();
+       await DatabaseService(uid: user.uid).createStarterCollection();
+       await DatabaseService(uid: user.uid).createClassCollection();
+
+
       return _userFromFirebaseUser(user);
     } catch (error) {
       print(error.toString());

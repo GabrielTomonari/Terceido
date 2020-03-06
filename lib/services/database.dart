@@ -78,8 +78,7 @@ class DatabaseService {
       especiaisExtra,
       especiaisRaca,
       especiaisClasse,
-      especiaisFavorecida,
-      itens) async {
+      especiaisFavorecida) async {
     return await characterCollection.document(uid).setData({
       'jogador': jogador,
       'personagem': personagem,
@@ -147,13 +146,48 @@ class DatabaseService {
       'especiaisRaca': especiaisRaca,
       'especiaisClasse': especiaisClasse,
       'especiaisFavorecida': especiaisFavorecida,
-      'itens': itens
     });
   }
 
   // Create Spells Collection
   Future<void> createSpellsCollection() async{
     return await characterCollection.document(uid).collection('Magias').document('Magia').setData({
+
+    });
+  }
+  // Create Items Collection
+  Future<void> createItemsCollection() async{
+    return await characterCollection.document(uid).collection('Itens').document('Item').setData({
+
+    });
+  }
+  // Create Abilities Collection
+  Future<void> createAbilitiesCollection() async{
+    return await characterCollection.document(uid).collection('Habilidades').document('Habilidade').setData({
+
+    });
+  }
+  // Create Specials Collection
+  Future<void> createSpecialsCollection() async{
+    return await characterCollection.document(uid).collection('Especiais').document('Tipos').setData({
+
+    });
+  }
+   // Create Specials Subtype 1: Evolução Collection
+  Future<void> createEvolutionCollection() async{
+    return await characterCollection.document(uid).collection('Especiais').document('Tipos').collection('Evolução').document('Nenhum Especial').setData({
+
+    });
+  }
+   // Create Specials Subtype 2: Iniciais Collection
+  Future<void> createStarterCollection() async{
+    return await characterCollection.document(uid).collection('Especiais').document('Tipos').collection('Iniciais').document('Nenhum Especial').setData({
+
+    });
+  }
+  // Create Specials Subtype 3: Raça/Classe Collection
+  Future<void> createClassCollection() async{
+    return await characterCollection.document(uid).collection('Especiais').document('Tipos').collection('Raça-Classe').document('Nenhum Especial').setData({
 
     });
   }
@@ -226,8 +260,7 @@ class DatabaseService {
         especiaisExtra: snapshot.data['especiaisExtra'],
         especiaisRaca: snapshot.data['especiaisRaca'],
         especiaisClasse: snapshot.data['especiaisClasse'],
-        especiaisFavorecida: snapshot.data['especiaisFavorecida'],
-        itens: snapshot.data['itens']);
+        especiaisFavorecida: snapshot.data['especiaisFavorecida'],);
   }
 
   // get user doc stream
