@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:terceido/models/user.dart';
+import 'package:terceido/models/abilitiesItem.dart';
 
 class Abilitie {
   final String name;
@@ -15,13 +18,26 @@ class AbilitiesList extends StatefulWidget {
 }
 
 class _AbilitiesListState extends State<AbilitiesList> {
+  
   @override
   Widget build(BuildContext context) {
-    final abilities = Provider.of<List<Abilitie>>(context) ?? [];
+    final user = Provider.of<User>(context);
 
-    return ListView.builder(
-      
+    return StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance.collection('characters').document(user.uid).collection('Habilidades').snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
+        if (!snapshot.hasData) {
+          return Text('Você não possui habilidades extras');
+        } else {
+          return ListView(shrinkWrap: true, children: getAbilities(snapshot));
+        }
+      },
     );
+
+    
+  }
+  getAbilities(AsyncSnapshot<QuerySnapshot> snapshot){
+    return snapshot.data.documents.map((doc) => AbilitiesItem(number: doc.data['Valor'], name: doc.data['Nome'])).toList();
   }
 }
 

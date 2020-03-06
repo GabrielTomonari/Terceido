@@ -5,6 +5,8 @@ import 'package:terceido/models/abilitiesItem.dart';
 import 'package:terceido/models/characteristicItem.dart';
 import 'package:terceido/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:terceido/screens/home/abilitiesList.dart';
+import 'package:terceido/screens/home/edit_abilities.dart';
 import 'package:terceido/shared/loading.dart';
 
 import '../../shared/constants.dart';
@@ -122,22 +124,25 @@ class Abilities extends StatelessWidget {
                       ),
                       // #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
                       //Secondary Body -------------------------------------
-                      StreamBuilder(
-                          stream: Firestore.instance
-                              .collection('characters')
-                              .document(user.uid)
-                              .collection('Habilidades')
-                              .snapshots(),
-                          builder: (context, snapshot) {
-                            if (!snapshot.hasData) {
-                              return Text('Você não possui nenhuma habilidade extra');
-                              
-                            }else{
-                              return Text(
-                                'já já eu termino'
-                              );
-                            }
-                          })
+                      Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 0),
+                          child: Column(children: <Widget>[AbilitiesList()])),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      RaisedButton.icon(
+                          color: Colors.white,
+                          textColor: Colors.black54,
+                          icon: Icon(FontAwesome.edit),
+                          label: Text('Editar'),
+                          onPressed: ()async {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => EditAbilities(),
+                                ));
+                          } )
                       // #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
                     ],
                   ),
