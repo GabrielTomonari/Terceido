@@ -47,7 +47,7 @@ class _CharacteristicsItemState extends State<CharacteristicsItem> {
       color = Colors.lightBlue[700];  
        v1=1.0; v2=1.0; v3=1.0; v4=1.0; v5=1.0; v6=1.0; v7=0;
     }else if (widget.number == 7) {
-      color = Colors.purple;  
+      color = Colors.orange[800];  
        v1=1.0; v2=1.0; v3=1.0; v4=1.0; v5=1.0; v6=1.0; v7=1.0;
     }
 

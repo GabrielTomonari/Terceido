@@ -2,7 +2,6 @@ import 'package:terceido/models/user.dart';
 import 'package:terceido/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter/material.dart';
 
 
 class AuthService {
@@ -142,6 +141,8 @@ class AuthService {
         [''],
         [''],
       );
+      // Create new spells collection for the user
+       await DatabaseService(uid: user.uid).createSpellsCollection();
       return _userFromFirebaseUser(user);
     } catch (error) {
       print(error.toString());

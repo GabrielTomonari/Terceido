@@ -1,6 +1,5 @@
 import 'package:terceido/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:intl/intl.dart';
 
 
 class DatabaseService {
@@ -10,7 +9,7 @@ class DatabaseService {
   var now = DateTime.now();
 
   // collection reference
-  final CollectionReference characterColletion = Firestore.instance.collection('characters');
+  final CollectionReference characterCollection = Firestore.instance.collection('characters');
 
   Future<void> updateUserData(
       String
@@ -81,7 +80,7 @@ class DatabaseService {
       especiaisClasse,
       especiaisFavorecida,
       itens) async {
-    return await characterColletion.document(uid).setData({
+    return await characterCollection.document(uid).setData({
       'jogador': jogador,
       'personagem': personagem,
       'personalidade': personalidade,
@@ -149,6 +148,13 @@ class DatabaseService {
       'especiaisClasse': especiaisClasse,
       'especiaisFavorecida': especiaisFavorecida,
       'itens': itens
+    });
+  }
+
+  // Create Spells Collection
+  Future<void> createSpellsCollection() async{
+    return await characterCollection.document(uid).collection('Magias').document('Magia').setData({
+
     });
   }
 
@@ -226,7 +232,7 @@ class DatabaseService {
 
   // get user doc stream
   Stream<UserData> get userData {
-    return characterColletion.document(uid).snapshots().map(_userDataFromSnapshot);
+    return characterCollection.document(uid).snapshots().map(_userDataFromSnapshot);
   }
 
 }
