@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:terceido/models/characteristicItem.dart';
 import 'package:terceido/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:terceido/shared/loading.dart';
-
-import '../../shared/constants.dart';
+import 'package:terceido/shared/constants.dart';
 
 class Characteristics extends StatelessWidget {
   @override

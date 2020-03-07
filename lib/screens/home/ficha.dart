@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:terceido/screens/home/abilities/abilities.dart';
-import 'package:terceido/screens/home/character.dart';
-import 'package:terceido/screens/home/characteristics.dart';
+import 'package:terceido/screens/home/character/character.dart';
+import 'package:terceido/screens/home/characteristics/characteristics.dart';
 
 class Ficha extends StatelessWidget {
   @override
