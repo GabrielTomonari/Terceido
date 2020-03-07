@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
-import 'package:terceido/screens/home/abilities/abilitiesListEdit.dart';
-import 'abilitiesItemEdit.dart';
+import 'package:terceido/models/abilitiesListEdit.dart';
+import 'package:terceido/models/abilitiesItemEdit.dart';
 import 'package:terceido/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:terceido/shared/loading.dart';

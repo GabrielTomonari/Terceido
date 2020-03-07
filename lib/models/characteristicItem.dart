@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class CharacteristicsItem extends StatefulWidget {
   
-  CharacteristicsItem({Key key, @required 
+  CharacteristicsItem({Key key, 
   this.number = 0, 
   this.name}) : super (key:key);
 
-  int number = 0;
-  String name;
+  final int number;
+  final String name;
 
 
   @override

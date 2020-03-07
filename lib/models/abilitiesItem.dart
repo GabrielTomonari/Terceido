@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class AbilitiesItem extends StatefulWidget {
 
-AbilitiesItem({Key key, @required 
+AbilitiesItem({Key key, 
   this.number = 0, 
   this.name}) : super (key:key);
 
-  int number = 0;
-  String name;
+  final int number;
+  final String name;
 
   @override
   _AbilitiesItemState createState() => _AbilitiesItemState();
