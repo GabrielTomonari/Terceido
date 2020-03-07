@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:terceido/models/abilitiesItem.dart';
+import 'abilitiesItemEdit.dart';
 import 'package:terceido/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:terceido/screens/home/abilitiesList.dart';
+import 'package:terceido/screens/home/abilitiesListEdit.dart';
 import 'package:terceido/shared/loading.dart';
 
 import '../../shared/constants.dart';
@@ -12,7 +12,7 @@ class EditAbilities extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-    int saldo;
+
     return Scaffold(
       body: StreamBuilder(
           stream: Firestore.instance
@@ -23,30 +23,6 @@ class EditAbilities extends StatelessWidget {
             if (!snapshot.hasData) {
               return Loading();
             } else {
-              if (snapshot.data['nivel'] > 100) {
-                saldo = 0;
-              } else {
-                saldo = snapshot.data['nivel'] -
-                    (snapshot.data['acrobacia'] +
-                        snapshot.data['aura'] +
-                        snapshot.data['bloqueio'] +
-                        snapshot.data['briga'] +
-                        snapshot.data['conhecimento'] +
-                        snapshot.data['concentracao'] +
-                        snapshot.data['dialetos'] +
-                        snapshot.data['diglade'] +
-                        snapshot.data['equilibrio'] +
-                        snapshot.data['escalar'] +
-                        snapshot.data['esquiva'] +
-                        snapshot.data['mergulhar'] +
-                        snapshot.data['nadar'] +
-                        snapshot.data['potencia'] +
-                        snapshot.data['resistencia'] +
-                        snapshot.data['saltar'] +
-                        snapshot.data['sobrevivencia'] +
-                        snapshot.data['velocidade'] +
-                        snapshot.data['vontade']);
-              }
               return SingleChildScrollView(
                 child: Container(
                   child: Padding(
@@ -56,15 +32,25 @@ class EditAbilities extends StatelessWidget {
                       children: <Widget>[
                         //Main Header -------------------------------------
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 15),
-                          child: Row(
+                          padding: const EdgeInsets.fromLTRB(0, 30, 0, 15),
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Text(
                                 'Habilidades',
                                 style: mainHeader,
                               ),
-                              Text(saldo.toString()),
+                              SizedBox(height: 10),
+                              Text(
+                                'Modo de edição',
+                                style: TextStyle(
+                                    fontSize: 24, fontWeight: FontWeight.w300),
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                'Saldo de pontos: ${snapshot.data['saldoHabilidades'].toString()}',
+                                style: biggerAttributeHeader,
+                              ),
                             ],
                           ),
                         ),
@@ -75,62 +61,84 @@ class EditAbilities extends StatelessWidget {
                               horizontal: 30, vertical: 0),
                           child: Column(
                             children: <Widget>[
-                              AbilitiesItem(
-                                  number: snapshot.data['acrobacia'],
-                                  name: 'Acrobacia'),
-                              AbilitiesItem(
-                                  number: snapshot.data['aura'], name: 'Aura'),
-                              AbilitiesItem(
+                              AbilitiesItemEdit(
+                                number: snapshot.data['acrobacia'],
+                                name: 'Acrobacia',
+                                fieldName: 'acrobacia',
+                              ),
+                              AbilitiesItemEdit(
+                                number: snapshot.data['aura'],
+                                name: 'Aura',
+                                fieldName: 'aura',
+                              ),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['bloqueio'],
-                                  name: 'Bloqueio'),
-                              AbilitiesItem(
+                                  name: 'Bloqueio',
+                                fieldName: 'bloqueio'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['briga'],
-                                  name: 'Briga'),
-                              AbilitiesItem(
+                                  name: 'Briga',
+                                fieldName: 'briga'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['conhecimento'],
-                                  name: 'Conhecimento'),
-                              AbilitiesItem(
+                                  name: 'Conhecimento',
+                                fieldName: 'conhecimento'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['concentracao'],
-                                  name: 'Concentração'),
-                              AbilitiesItem(
+                                  name: 'Concentração',
+                                fieldName: 'concentracao'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['dialetos'],
-                                  name: 'Dialetos'),
-                              AbilitiesItem(
+                                  name: 'Dialetos',
+                                fieldName: 'dialetos'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['diglade'],
-                                  name: 'Díglade'),
-                              AbilitiesItem(
+                                  name: 'Díglade',
+                                fieldName: 'diglade'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['equilibrio'],
-                                  name: 'Equilíbrio'),
-                              AbilitiesItem(
+                                  name: 'Equilíbrio',
+                                fieldName: 'equilibrio'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['escalar'],
-                                  name: 'Escalar'),
-                              AbilitiesItem(
+                                  name: 'Escalar',
+                                fieldName: 'escalar'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['esquiva'],
-                                  name: 'Esquiva'),
-                              AbilitiesItem(
+                                  name: 'Esquiva',
+                                fieldName: 'esquiva'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['mergulhar'],
-                                  name: 'Mergulhar'),
-                              AbilitiesItem(
+                                  name: 'Mergulhar',
+                                fieldName: 'mergulhar'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['nadar'],
-                                  name: 'Nadar'),
-                              AbilitiesItem(
+                                  name: 'Nadar',
+                                fieldName: 'nadar'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['potencia'],
-                                  name: 'Potência'),
-                              AbilitiesItem(
+                                  name: 'Potência',
+                                fieldName: 'potencia'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['resistencia'],
-                                  name: 'Resistência'),
-                              AbilitiesItem(
+                                  name: 'Resistência',
+                                fieldName: 'resistencia'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['saltar'],
-                                  name: 'Saltar'),
-                              AbilitiesItem(
+                                  name: 'Saltar',
+                                fieldName: 'saltar'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['sobrevivencia'],
-                                  name: 'Sobrevivência'),
-                              AbilitiesItem(
+                                  name: 'Sobrevivência',
+                                fieldName: 'sobrevivencia'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['velocidade'],
-                                  name: 'Velocidade'),
-                              AbilitiesItem(
+                                  name: 'Velocidade',
+                                fieldName: 'velocidade'),
+                              AbilitiesItemEdit(
                                   number: snapshot.data['vontade'],
-                                  name: 'Vontade'),
+                                  name: 'Vontade',
+                                fieldName: 'vontade'),
                             ],
                           ),
                         ),
@@ -153,7 +161,8 @@ class EditAbilities extends StatelessWidget {
                         Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 0),
-                            child: Column(children: <Widget>[AbilitiesList()]))
+                            child:
+                                Column(children: <Widget>[AbilitiesListEdit()]))
                         // #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
                       ],
                     ),

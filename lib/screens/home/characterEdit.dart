@@ -31,7 +31,6 @@ class _CharacterEditState extends State<CharacterEdit> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-    Future pause(Duration d) => new Future.delayed(d);
 
     return Scaffold(
       body: StreamBuilder(
@@ -52,20 +51,6 @@ class _CharacterEditState extends State<CharacterEdit> {
               if (_classeAtual == _classeFavorecidaAtual) {
                 erro = 'As classes não podem ser iguais';
                 _classeFavorecidaAtual = null;
-              }
-
-              //Balance Limit
-              Future<void> balanceLimit() async{
-                if (snapshot.data['saldoHabilidades']>120) {
-                  return await Firestore.instance
-                      .collection('characters')
-                      .document(user.uid)
-                      .updateData({
-                    'saldoHabilidades': 120,
-                  });
-                } else{
-                  return null;
-                }
               }
 
               //Increment One
@@ -180,21 +165,21 @@ class _CharacterEditState extends State<CharacterEdit> {
                                     width: 50,
                                     child: RaisedButton(
                                         child: Text('+1'),
-                                        onPressed: () => [incrementOne(), balanceLimit()]),
+                                        onPressed: () => [incrementOne()]),
                                   ),
                                   Spacer(flex: 1),
                                   SizedBox(
                                     width: 50,
                                     child: RaisedButton(
                                         child: Text('+5'),
-                                        onPressed: () => {incrementFive(), balanceLimit()}),
+                                        onPressed: () => {incrementFive()}),
                                   ),
                                   Spacer(flex: 1),
                                   SizedBox(
                                     width: 60,
                                     child: RaisedButton(
                                         child: Text('+10'),
-                                        onPressed: () => [incrementTen(), balanceLimit()]),
+                                        onPressed: () => [incrementTen()]),
                                   ),
                                   Spacer(flex: 2),
                                 ],
