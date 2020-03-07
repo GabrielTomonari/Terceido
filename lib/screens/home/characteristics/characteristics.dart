@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:terceido/models/characteristicItem.dart';
 import 'package:terceido/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:terceido/screens/home/characteristics/characteristicsEdit.dart';
 import 'package:terceido/shared/loading.dart';
 import 'package:terceido/shared/constants.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 class Characteristics extends StatelessWidget {
   @override
@@ -64,6 +66,21 @@ class Characteristics extends StatelessWidget {
                             CharacteristicsItem(number: snapshot.data['magica'], name: 'Mágica'),
                             CharacteristicsItem(number: snapshot.data['mente'], name: 'Mente'),
                             CharacteristicsItem(number: snapshot.data['vigor'], name: 'Vigor'),
+                            SizedBox(
+                        height: 20,
+                      ),
+                      RaisedButton.icon(
+                          color: Colors.white,
+                          textColor: Colors.black54,
+                          icon: Icon(FontAwesome.edit),
+                          label: Text('Editar'),
+                          onPressed: ()async {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CharacteristicsEdit(),
+                                ));
+                          } )
                           ],
                         ),
                       ),

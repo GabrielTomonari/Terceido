@@ -53,64 +53,106 @@ class _CharacterEditState extends State<CharacterEdit> {
                 _classeFavorecidaAtual = null;
               }
 
+              //Level Up -----------------------------------------------------
+
+              //Characteristics counter. Until level 100, 10 levels = 1 Characteristics Point
+              Future<void> incrementCharacteristicsOne() async{
+                if (snapshot.data['nivel']<100) {
+                  return await Firestore.instance
+                      .collection('characters')
+                      .document(user.uid)
+                      .updateData({
+                    'contadorCaracteristicas': FieldValue.increment(1),
+                  });
+                }
+              }
+              
+              Future<void> incrementCharacteristicsFive() async{
+                if (snapshot.data['nivel']<100) {
+                   await Firestore.instance
+                      .collection('characters')
+                      .document(user.uid)
+                      .updateData({
+                    'contadorCaracteristicas': FieldValue.increment(5),
+                  });
+                }
+              }
+
+              Future<void> incrementCharacteristicsTen() async{
+                if (snapshot.data['nivel']<100) {
+                  return await Firestore.instance
+                      .collection('characters')
+                      .document(user.uid)
+                      .updateData({
+                    'saldoCaracteristicas': FieldValue.increment(1),
+                  });
+                }
+              }
+
               //Increment One
               Future<void> incrementOne() async {
                 if (snapshot.data['nivel'] < 100) {
-                  return await Firestore.instance
+                  await Firestore.instance
                       .collection('characters')
                       .document(user.uid)
                       .updateData({
                     'nivel': FieldValue.increment(1),
                     'saldoHabilidades': FieldValue.increment(1),
                   });
+                  return incrementCharacteristicsOne();
                 }else{
-                  return await Firestore.instance
+                  await Firestore.instance
                       .collection('characters')
                       .document(user.uid)
                       .updateData({
                     'nivel': FieldValue.increment(1),
                   });
+                 return incrementCharacteristicsOne();
                 }
               }
 
               //Increment Five
               Future<void> incrementFive() async {
                 if (snapshot.data['nivel'] < 100) {
-                  return await Firestore.instance
+                  await Firestore.instance
                       .collection('characters')
                       .document(user.uid)
                       .updateData({
                     'nivel': FieldValue.increment(5),
                     'saldoHabilidades': FieldValue.increment(5),
                   });
+                 return incrementCharacteristicsFive();
                 }else{
-                  return await Firestore.instance
+                  await Firestore.instance
                       .collection('characters')
                       .document(user.uid)
                       .updateData({
                     'nivel': FieldValue.increment(5),
                   });
+                 return incrementCharacteristicsFive();
                 }
               }
 
               //Increment Ten
               Future<void> incrementTen() async {
                 if (snapshot.data['nivel'] < 100) {
-                  return await Firestore.instance
+                  await Firestore.instance
                       .collection('characters')
                       .document(user.uid)
                       .updateData({
                     'nivel': FieldValue.increment(10),
                     'saldoHabilidades': FieldValue.increment(10) 
-                  });      
+                  });
+                  return incrementCharacteristicsTen();     
                 }
                 else{
-                  return await Firestore.instance
+                  await Firestore.instance
                       .collection('characters')
                       .document(user.uid)
                       .updateData({
                     'nivel': FieldValue.increment(10),
                   });
+                  return incrementCharacteristicsTen();
                 }
               }
 
