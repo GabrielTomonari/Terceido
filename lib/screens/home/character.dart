@@ -3,6 +3,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:terceido/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:terceido/screens/home/characterEdit.dart';
 import 'package:terceido/shared/loading.dart';
 
 import '../../shared/constants.dart';
@@ -246,7 +247,13 @@ class Character extends StatelessWidget {
                       textColor: Colors.black54,
                       icon: Icon(FontAwesome.edit),
                       label: Text('Editar'),
-                      onPressed:(){})
+                      onPressed: ()async {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CharacterEdit(),
+                                ));
+                          })
                   ],
                 ),
               ),
