@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 import 'abilitiesItemEdit.dart';
 import 'package:terceido/models/user.dart';
@@ -162,7 +163,11 @@ class EditAbilities extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 0),
                             child:
-                                Column(children: <Widget>[AbilitiesListEdit()]))
+                                Column(children: <Widget>[AbilitiesListEdit(),
+                                SizedBox(height: 20,),
+                                RaisedButton.icon(onPressed: null, icon: Icon(Entypo.circle_with_plus), label: Text('Adicionar Habilidades Extras')),
+                                SizedBox(height: 20,),
+                                ]),)
                         // #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
                       ],
                     ),

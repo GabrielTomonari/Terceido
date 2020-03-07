@@ -29,7 +29,7 @@ class _AbilitiesListState extends State<AbilitiesList> {
         if (!snapshot.hasData) {
           return Text('Você não possui habilidades extras');
         } else {
-          return ListView(shrinkWrap: true, children: getAbilities(snapshot));
+          return ListView(physics: NeverScrollableScrollPhysics(),shrinkWrap: true, children: getAbilities(snapshot));
         }
       },
     );
