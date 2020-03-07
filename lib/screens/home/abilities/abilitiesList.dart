@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:terceido/models/user.dart';
-import 'package:terceido/models/abilitiesItem.dart';
+import 'package:terceido/screens/home/abilities/abilitiesItem.dart';
 
 class Abilitie {
   final String name;

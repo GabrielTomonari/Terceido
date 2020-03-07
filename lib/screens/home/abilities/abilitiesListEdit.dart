@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:terceido/screens/home/abilitiesListItemEdit.dart';
+import 'abilitiesListItemEdit.dart';
 import 'package:terceido/models/user.dart';
 
 class Abilitie {

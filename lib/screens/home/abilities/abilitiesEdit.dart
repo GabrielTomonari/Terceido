@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
+import 'package:terceido/screens/home/abilities/abilitiesListEdit.dart';
 import 'abilitiesItemEdit.dart';
 import 'package:terceido/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:terceido/screens/home/abilitiesListEdit.dart';
 import 'package:terceido/shared/loading.dart';
-
-import '../../shared/constants.dart';
+import 'package:terceido/shared/constants.dart';
 
 class EditAbilities extends StatelessWidget {
   @override
